@@ -1,7 +1,6 @@
 package com.vs.core.request;
 
-import com.vs.core.interfaces.IApiBuilder;
-import com.vs.core.interfaces.IApiRequest;
+import com.vs.core.response.IApiBuilder;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.specification.RequestSpecification;

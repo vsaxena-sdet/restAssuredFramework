@@ -1,4 +1,4 @@
-package com.vs.core.interfaces;
+package com.vs.core.request;
 
 import com.vs.enums.HttpMethods;
 

@@ -1,8 +1,6 @@
 package com.vs.core.request;
 
 import com.vs.enums.HttpMethods;
-import com.vs.core.interfaces.IApiRequest;
-import io.restassured.specification.RequestSpecification;
 
 import java.util.Map;
 

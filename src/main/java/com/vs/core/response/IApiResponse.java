@@ -1,6 +1,5 @@
-package com.vs.core.interfaces;
+package com.vs.core.response;
 
-import com.vs.core.response.ApiExecutor;
 import io.restassured.response.Response;
 
 public interface IApiResponse {
