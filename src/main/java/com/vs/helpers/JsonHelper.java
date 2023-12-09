@@ -1,4 +1,4 @@
-package com.vs.utils;
+package com.vs.helpers;
 
 public class JsonHelper {
 }
