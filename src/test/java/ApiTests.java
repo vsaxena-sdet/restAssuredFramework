@@ -1,8 +1,5 @@
 import com.vs.core.request.Request;
 import com.vs.core.response.ApiExecutor;
-import com.vs.core.response.ApiExecutorBase;
-import com.vs.core2.request.GetUsersRequest;
-import com.vs.core2.response.Executor;
 import com.vs.enums.HttpMethods;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
