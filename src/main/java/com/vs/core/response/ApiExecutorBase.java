@@ -28,6 +28,10 @@ public abstract class ApiExecutorBase extends BuilderBase implements IApiRespons
             case POST:
                 response = RestAssured.given().when().config(config).spec(spec).post();
                 break;
+            case PUT:
+                response = RestAssured.given().when().config(config).spec(spec).put();
+                break;
+
             default:
                 throw  new RuntimeException("Method cannot be empty");
         }

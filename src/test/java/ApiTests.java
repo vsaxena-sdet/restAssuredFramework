@@ -1,6 +1,8 @@
 import com.vs.core.request.Request;
 import com.vs.core.response.ApiExecutor;
 import com.vs.core.response.ApiExecutorBase;
+import com.vs.core2.request.GetUsersRequest;
+import com.vs.core2.response.Executor;
 import com.vs.enums.HttpMethods;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -26,20 +28,16 @@ public class ApiTests {
     }
 
     @Test
-    public void abcd (){
+    public void abcd () {
         Request request = new Request();
-        Map<String,Object> queryParams = new HashMap<String, Object>();
-        queryParams.put("page",1);
+        Map<String, Object> queryParams = new HashMap<String, Object>();
+        queryParams.put("page", 1);
         request.baseURI = "https://reqres.in/";
-        request.path="api/users";
-        request.queryParams=queryParams;
-        request.method= HttpMethods.GET;
-        request.contentType= ContentType.JSON.getAcceptHeader();
+        request.path = "api/users";
+        request.queryParams = queryParams;
+        request.method = HttpMethods.PUT;
+        request.contentType = ContentType.JSON.getAcceptHeader();
         Response res = new ApiExecutor(request).execute();
         res.prettyPrint();
     }
-
-
-
-
 }
