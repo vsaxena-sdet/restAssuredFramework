@@ -8,6 +8,7 @@ import io.restassured.specification.RequestSpecification;
 public class BuilderBase implements IApiBuilder<RequestSpecification> {
 
     RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
+    //
 
     public RequestSpecification requestSpec(IApiRequest request) {
 
