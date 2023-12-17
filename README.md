@@ -38,7 +38,7 @@ Ensure you have the following tools installed on your machine:
       mvn test
 
 ## Report Portal
-  - Setup Report Portal Using docker on a local machine or any other cloud server. Refer to [this](https://reportportal.io/docs/installation-steps/DeployWithDockerOnLinuxMac) link for help.
+  - Setup Report Portal using docker on a local machine or any other cloud server. Refer to [this](https://reportportal.io/docs/installation-steps/DeployWithDockerOnLinuxMac) link for help.
   - Update the reportPortal.properties file with the uuid,hostname and project name
   - Run the tests using maven to see reports in the report portal.
 
