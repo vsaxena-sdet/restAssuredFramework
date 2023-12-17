@@ -1,6 +1,7 @@
 package com.vs.core.request;
 
 import com.vs.enums.HttpMethods;
+import io.restassured.http.ContentType;
 
 import java.util.Map;
 
@@ -12,7 +13,7 @@ public class Request implements IApiRequest {
     public Map<String, String> headers;
     public Map<String, Object> queryParams;
     public Map<String, Object> pathParams;
-    public String contentType;
+    public ContentType contentType;
     public String body;
 
     @Override
@@ -46,7 +47,7 @@ public class Request implements IApiRequest {
     }
 
     @Override
-    public String contentType() {
+    public ContentType contentType() {
         return this.contentType;
     }
 

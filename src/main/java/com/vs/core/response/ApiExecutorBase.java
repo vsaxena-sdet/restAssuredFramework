@@ -5,6 +5,7 @@ import com.vs.core.request.BuilderBase;
 import com.vs.core.request.Request;
 import io.restassured.RestAssured;
 import io.restassured.config.RestAssuredConfig;
+import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -31,7 +32,7 @@ public abstract class ApiExecutorBase extends BuilderBase implements IApiRespons
                 ReportPortal.emitLog("Logging Response", Level.INFO.getName(), new Date());
                 break;
             case POST:
-                response = RestAssured.given().when().config(config).spec(spec).post();
+                response = RestAssured.given().filter(new RequestLoggingFilter()).config(config).spec(spec).body(request.body).when().post(request.baseURI.concat(request.path));
                 ReportPortal.emitLog("Logging Response", Level.INFO.getName(), new Date());
                 break;
             case PUT:

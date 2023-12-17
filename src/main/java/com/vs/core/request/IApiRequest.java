@@ -1,6 +1,7 @@
 package com.vs.core.request;
 
 import com.vs.enums.HttpMethods;
+import io.restassured.http.ContentType;
 
 import java.util.Map;
 
@@ -12,7 +13,7 @@ public interface IApiRequest {
     Map<String,Object> queryParams();
     Map<String,String> headers();
     Object requestBody();
-    String contentType();
+    ContentType contentType();
     HttpMethods method();
 
 

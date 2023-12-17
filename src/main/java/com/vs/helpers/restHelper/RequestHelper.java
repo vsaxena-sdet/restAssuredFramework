@@ -17,7 +17,17 @@ public class RequestHelper {
         request.path = "api/users";
         request.queryParams = queryParams;
         request.method = HttpMethods.GET;
-        request.contentType = ContentType.JSON.getAcceptHeader();
+        request.contentType = ContentType.JSON;
+        return request;
+    }
+
+    public Request createPetStoreUserRequest(String body){
+        Request request = new Request();
+        request.baseURI = "https://petstore.swagger.io";
+        request.path = "/v2/user";
+        request.method = HttpMethods.POST;
+        request.body=body;
+        request.contentType = ContentType.JSON;
         return request;
     }
 }
