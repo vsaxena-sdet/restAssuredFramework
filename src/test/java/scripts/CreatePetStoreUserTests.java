@@ -5,14 +5,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vs.core.request.Request;
 import com.vs.core.response.ApiExecutor;
 import com.vs.models.request.CreatePetStoreUser_usingLombokBuilderDesgn;
-import com.vs.models.request.CreatePetStoreUser2_usingLambdasBuilderDesign;
 import io.restassured.response.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class CreatePetStoreUserTests extends BaseTest {
+
+    private static final Logger logger = LoggerFactory.getLogger(CreatePetStoreUserTests.class);
     SoftAssert softAssert;
 
     @BeforeMethod
