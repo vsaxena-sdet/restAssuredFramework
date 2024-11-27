@@ -1,1 +1,31 @@
+name: Run Tests on Pull Request
 
+on:
+  pull_request:
+    types: [opened, synchronize, reopened] # Events to trigger the workflow
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Java (if required)
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17' # Change to your version
+
+      # Step 3: Install dependencies (if applicable)
+      - name: Install dependencies
+        run: |
+          mvn clean install
+
+      # Step 4: Run tests
+      - name: Run Tests
+        run: |
+          mvn test
