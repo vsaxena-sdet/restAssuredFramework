@@ -1,9 +1,11 @@
 package com.vs.models.request;
 
 import io.reactivex.functions.Consumer;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 @Builder
+@AllArgsConstructor
 public class CreatePetStoreUser2_usingLambdasBuilderDesign {
     //using lambdas builder method
     int id;

@@ -14,13 +14,10 @@ public class GetUsersApiValidations {
     public void validateApiResponse(Response getUserApiResponse, SoftAssert softAssert) {
         Root getUsersDataRespObj = JsonHelper.parseJsonResponse(getUserApiResponse, Root.class);
         assert getUsersDataRespObj != null;
-        softAssert.assertEquals(getUsersDataRespObj.getPage(),1);
+        softAssert.assertEquals(getUsersDataRespObj.getPage(),2);
         softAssert.assertEquals(getUsersDataRespObj.getPer_page(),6);
         softAssert.assertEquals(getUsersDataRespObj.getTotal(),12);
         softAssert.assertEquals(getUsersDataRespObj.getTotal_pages(),2);
-
-
-
 
     }
 }

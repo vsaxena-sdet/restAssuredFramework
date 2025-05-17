@@ -18,6 +18,7 @@ public class RequestHelper {
         request.queryParams = queryParams;
         request.method = HttpMethods.GET;
         request.contentType = ContentType.JSON;
+        request.headers = Map.of("x-api-key","reqres-free-v1");
         return request;
     }
 

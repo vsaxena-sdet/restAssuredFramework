@@ -1,5 +1,8 @@
 package com.vs.core.response;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.epam.reportportal.service.ReportPortal;
 import com.vs.core.request.BuilderBase;
 import com.vs.core.request.Request;
@@ -15,6 +18,7 @@ import java.util.logging.Level;
 public abstract class ApiExecutorBase extends BuilderBase implements IApiResponse {
 
     Request request;
+    private static final Logger logger = LogManager.getLogger(ApiExecutorBase.class);
 
     public ApiExecutorBase(Request request) {
         this.request = request;
@@ -24,26 +28,27 @@ public abstract class ApiExecutorBase extends BuilderBase implements IApiRespons
     public Response execute() {
         RequestSpecification spec = requestSpec(request);
         RestAssuredConfig config = RestAssured.config;
-        Response  response;
-
-        switch (request.method()){
+        Response response;
+        switch (request.method()) {
             case GET:
-                response = RestAssured.given().when().config(config).spec(spec).get();
-                ReportPortal.emitLog("Logging Response", Level.INFO.getName(), new Date());
+                logger.info("Executing GET request to: " + request.baseURI + request.path);
+                response = RestAssured.given().config(config).spec(spec).get();
                 break;
             case POST:
-                response = RestAssured.given().filter(new RequestLoggingFilter()).config(config).spec(spec).body(request.body).when().post(request.baseURI.concat(request.path));
-                ReportPortal.emitLog("Logging Response", Level.INFO.getName(), new Date());
+                logger.info("Executing POST request to: " + request.baseURI + request.path);
+                logger.info("Request Body: " + request.body);
+                response = RestAssured.given().filter(new RequestLoggingFilter()).config(config).spec(spec).body(request.body).post(request.baseURI.concat(request.path));
                 break;
             case PUT:
-                response = RestAssured.given().when().config(config).spec(spec).put();
-                ReportPortal.emitLog("Logging Response", Level.INFO.getName(), new Date());
+                logger.info("Executing PUT request to: " + request.baseURI + request.path);
+                response = RestAssured.given().config(config).spec(spec).put();
                 break;
-
             default:
-                throw  new RuntimeException("Method cannot be empty");
+                throw new RuntimeException("Method cannot be empty");
         }
-        response.prettyPrint();
+        String responseBody = response.prettyPrint();
+        logger.info("Response Status Code: " + response.getStatusCode());
+        logger.info("Response Body: " + responseBody);
         return response;
     }
 }
